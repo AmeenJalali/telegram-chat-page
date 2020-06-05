@@ -1,0 +1,262 @@
+/*
+    This app is responsive.
+*/
+
+html {
+    background-color: #e7ebf0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*, :after, :before {
+    -moz-box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+body {
+    font: 14px 'Open Sans',"Lucida Grande","Lucida Sans Unicode",Arial,Helvetica,Verdana,sans-serif;
+}
+
+small {
+    font-size: 12px;
+}
+
+.row-wrap {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.wrap {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.blue-bg {
+    background-color: #6490b1;
+}
+
+.app-wrapper {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    background-color: #fff;
+    max-width: 1000px;
+    height: 100vh;
+}
+
+.header {
+    padding: 10px 15px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.header:hover {
+    background-color: #497799;
+}
+
+.user-informations {
+    align-items: center;
+    font-weight: 700;
+}
+
+.user-informations img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.overlay {
+    position: absolute;
+    display: none;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .45);
+}
+
+.modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 150;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 10px rgba(0,0,0,.15);
+    box-shadow: 0 1px 10px rgba(0,0,0,.15);
+    min-width: 250px;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    overflow-y: auto;
+    display: none;
+}
+
+.modal-header {
+    padding: 20px;
+    color: #fff;
+    font-weight: 700;
+    background-color: #1369a7;
+    position: relative;
+}
+
+.modal-header .user-avatar {
+    margin-right: 10px;
+}
+
+.modal-header small, .header small {
+    font-weight: 400;
+    color: rgba(255, 255, 255, .66);
+}
+
+.modal-header button.close {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, .66);
+    -moz-transition: .3s all ease;
+    -ms-transition: .3s all ease;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+.modal-header button.close:hover {
+    color: #fff;
+}
+
+.modal-contents {
+    padding: 10px 10px;
+    background-color: #fff;
+}
+
+ul.user-details li {
+    margin: 15px 0;
+    color: rgb(133, 133, 133);
+    font-size: 12px;
+}
+
+ul.user-details li span {
+    display: block;
+    color: #343434;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.messages-wrapper {
+    background-color: inherit;
+    padding: 20px 15px;
+    overflow-y: auto;
+    height: calc(100% - 140px);
+}
+
+.message {
+    background-color: rgba(102, 108, 112, 0.05);
+    float: right;
+    display: block;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 5px 0;
+    width: 80%;
+}
+
+.message.mine {
+    background-color: rgba(100, 144, 177, .15);
+    float: left;
+}
+
+.messages-wrapper::after {
+    content: '';
+    clear: both;
+}
+
+.message-panel-wrapper {
+    border-top: 1px solid #f3f3f3;
+    height: 80px;
+    background-color: inherit;
+    padding: 20px 15px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.send-message-panel {
+    justify-content: space-between;
+}
+
+.send-message-panel input[type="text"] {
+    height: 40px;
+    width: calc(100% - 110px);
+    padding: 5px;
+    border-bottom: 2px solid #dbdbdb;
+    color: #343434;
+    -moz-transition: .3s all ease;
+    -ms-transition: .3s all ease;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+.send-message-panel input[type="text"]:focus {
+    border-color: #499dd9;
+}
+
+button.send {
+    width: 100px;
+    height: 40px;
+    color: #499dd9;
+    font-weight: 700;
+    border-radius: 4px;
+    -moz-transition: .3s all ease;
+    -ms-transition: .3s all ease;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+button.send:hover {
+    color: #1369a7;
+}
